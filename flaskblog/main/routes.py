@@ -1,4 +1,5 @@
 
+from flask_login import current_user, login_required
 from flask import render_template, request, Blueprint
 from flaskblog.models import Post
 
@@ -14,5 +15,6 @@ def home():
 
 
 @main.route("/about")
+@login_required
 def about():
-return render_template('about.html', title='About')
+    return render_template('about.html', title='About')
